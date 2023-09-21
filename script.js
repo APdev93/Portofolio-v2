@@ -10,6 +10,13 @@ function myMenuFunction() {
    }
 }
 
+const modeToggle = document.getElementById("mode-toggle");
+const body = document.body;
+
+modeToggle.addEventListener("change", () => {
+   body.classList.toggle("dark-mode");
+});
+
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
 window.onscroll = function () {
    headerShadow();
@@ -25,10 +32,12 @@ function headerShadow() {
       navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
       navHeader.style.height = "70px";
       navHeader.style.lineHeight = "70px";
+      navHeader.style.backgroundColor = "var(--nav-color)";
    } else {
       navHeader.style.boxShadow = "none";
-      navHeader.style.height = "90px";
-      navHeader.style.lineHeight = "90px";
+      navHeader.style.height = "80px";
+      navHeader.style.lineHeight = "80px";
+      navHeader.style.backgroundColor = "transparent";
    }
 }
 

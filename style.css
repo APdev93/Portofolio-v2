@@ -5,11 +5,14 @@
 :root {
    --body-color: rgb(250, 250, 250);
    --color-white: rgb(255, 255, 255);
-
+   --nav-color: rgb(233, 251, 253);
    --text-color-second: rgb(68, 68, 68);
+   --footer-color: rgb(195, 195, 195);
+
    --text-color-third: rgb(254, 0, 108);
    --text-color-green: rgb(11, 147, 37);
-
+   --color-orange: rgb(196, 63, 0);
+   --color-black: rgb(47, 47, 47);
    --first-color: rgb(87, 138, 224);
    --first-color-hover: rgb(43, 212, 40);
 
@@ -19,14 +22,14 @@
 }
 
 .dark-mode {
-   --body-color: rgb(36, 33, 38);
-   --color-white: rgb(41, 37, 45);
-   --text-color-second: rgb(213, 213, 213);
-   --f-color: #302f33;
-   --b-color1: #37354f;
-   --b-color: #2a2835;
-   --t-color: white;
-   --f-color: #302f33;
+   --footer-color: rgb(36, 35, 44);
+   --color-black: rgb(122, 122, 122);
+   --nav-color: #392f3a;
+   --body-color: rgb(34, 32, 45);
+   --text-color-second: hsl(0, 0%, 100%);
+   --first-shadow-color: hsl(0, 0%, 62%);
+   --card-shadow: hsla(0, 0%, 0%, 0.4);
+   --input-bg: hsl(0, 0%, 16%);
 }
 
 /* ----- BASE ----- */
@@ -86,6 +89,13 @@ i {
 /* ------- BASE -------- */
 body {
    background: var(--body-color);
+   transition: 0.3s;
+}
+a {
+   transition: 0.3s;
+}
+p {
+   transition: 0.3s;
 }
 .container {
    width: 100%;
@@ -297,8 +307,10 @@ input:checked + .slider:before {
    width: 40px;
    height: 40px;
    border-radius: 50%;
-   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+   background-color: var(--nav-color);
+   box-shadow: 0px 2px 5px 0px var(--first-shadow-color);
    cursor: pointer;
+   transition: 0.3s;
 }
 
 .icon:hover {
@@ -306,7 +318,7 @@ input:checked + .slider:before {
 }
 
 .icon .uil {
-   color: black;
+   color: var(--text-color-second);
    transition: 0.5s ease-in-out;
 }
 .icon .uil:hover {
@@ -395,23 +407,32 @@ h3 {
 }
 
 /* ----- ABOUT INFO ----- */
+.content-p {
+   text-align: center;
+   width: 90%;
+   height: auto;
+}
 .about-info {
    position: relative;
    display: flex;
    align-items: center;
    flex-direction: column;
-   padding-block: 30px 70px;
-   padding-inline: 20px;
+   padding-block: 15px 50px;
+   height: auto;
    width: 100%;
-   background: var(--color-white);
+   background: var(--nav-color);
+   border-left: 8px solid #da0061;
    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+   transition: 0.3s;
    border-radius: 20px;
 }
+
 .about-info p {
    text-align: center;
    font-size: 15px;
-   color: #777;
+   color: var(--text-color-second);
+   transition: 0.3s;
 }
 .about-btn button {
    position: absolute;
@@ -498,27 +519,31 @@ h3 {
    flex-direction: column;
    width: 45%;
    height: auto;
-   background: var(--color-white);
+   background: var(--nav-color);
+   border-left: 5px solid var(--text-color-green);
    border-radius: 20px;
    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
    overflow: hidden;
+   transition: 0.3s;
 }
 
 .project-box label {
    font-size: 20px;
    font-weight: bold;
-   color: rgb(53, 47, 62);
+   color: var(--text-color-second);
+   transition: 0.5s ease-in-out;
 }
 .project-box desc {
    font-size: 15px;
-   color: #777;
+   color: var(--text-color-second);
    margin-bottom: 10px;
+   transition: 0.5s ease-in-out;
 }
 .project-box::after,
 .contact-info::after {
    content: "";
    position: absolute;
-   bottom: -100%;
+   left: -100%;
    width: 100%;
    height: 100%;
    background: var(--text-color-green);
@@ -528,12 +553,12 @@ h3 {
 
 .project-box:hover.project-box::after,
 .contact-info:hover.contact-info::after {
-   bottom: 0;
+   left: 0;
 }
 .project-box:hover.project-box i,
 .project-box:hover.project-box > desc,
 .project-box:hover.project-box > label {
-   color: var(--color-white);
+   color: white;
    z-index: 2;
 }
 
@@ -548,9 +573,11 @@ h3 {
    width: 100%;
    height: 315px;
    background: var(--text-color-green);
+   border-left: 5px solid var(--color-black);
    border-radius: 10px;
-   box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+   box-shadow: 1px 8px 10px 2px var(--nav-color);
    overflow: hidden;
+   transition: 0.3s;
 }
 .contact-info > h2 {
    color: var(--color-white);
@@ -567,7 +594,7 @@ h3 {
    font-size: 18px;
 }
 .contact-info::after {
-   background: var(--color-white);
+   background: var(--nav-color);
 }
 .contact-info:hover.contact-info h2,
 .contact-info:hover.contact-info p,
@@ -629,12 +656,14 @@ footer {
    align-items: center;
    flex-direction: column;
    row-gap: 30px;
-   background: #f8f8f8;
+   background: var(--footer-color);
    padding-block: 40px 60px;
+   transition: 0.3s;
 }
 .top-footer p {
    font-size: 25px;
    font-weight: 600;
+   color: var(--color-white);
 }
 .middle-footer .footer-menu {
    display: flex;
@@ -655,6 +684,10 @@ footer {
 .bottom-footer {
    font-size: 14px;
    margin-top: 10px;
+}
+
+.bottom-footer p {
+   color: var(--color-white);
 }
 
 /* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
