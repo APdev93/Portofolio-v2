@@ -19,12 +19,16 @@
    --second-color: rgb(28, 183, 57);
    --third-color: rgb(34, 213, 206);
    --first-shadow-color: rgba(0, 0, 0, 0.1);
+   --navlist-color: rgba(233, 251, 253, 0.171);
+   --ham: rgb(30, 30, 30);
 }
 
 .dark-mode {
+   --ham: rgb(255, 255, 255);
+   --navlist-color: rgba(57, 47, 58, 0.116);
    --footer-color: rgb(36, 35, 44);
    --color-black: rgb(122, 122, 122);
-   --nav-color: #392f3a;
+   --nav-color: rgb(57, 47, 58);
    --body-color: rgb(34, 32, 45);
    --text-color-second: hsl(0, 0%, 100%);
    --first-shadow-color: hsl(0, 0%, 62%);
@@ -64,6 +68,10 @@ html {
 /* ---##-- REUSABLE CSS --##--- */
 
 /* ----- GLOBAL BUTTON DESIGN ----- */
+.uil-bars {
+   color: var(--ham);
+   height: 0;
+}
 .btn {
    font-weight: 500;
    padding: 12px 20px;
@@ -165,7 +173,8 @@ nav {
    display: none;
 }
 .nav-menu-btn i {
-   font-size: 28px;
+   width: 20px;
+   font-size: 40px;
    cursor: pointer;
 }
 .active-link {
@@ -711,23 +720,26 @@ footer {
       left: 0;
    }
    .nav-menu {
+      z-index: -1;
       position: fixed;
-      top: 75px;
+      top: 0;
       left: -100%;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: rgba(255, 255, 255, 0.7);
+      background: var(--navlist-color);
       backdrop-filter: blur(20px);
       width: 100%;
-      min-height: 450px;
-      height: 90vh;
+      height: 100%;
       transition: 0.3s;
    }
    .nav_menu_list {
       flex-direction: column;
    }
    .nav-menu-btn {
+      border-radius: 10px;
+      height: 0;
+      margin-right: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
