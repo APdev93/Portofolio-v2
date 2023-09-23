@@ -542,6 +542,11 @@ h3 {
    color: var(--text-color-second);
    transition: 0.5s ease-in-out;
 }
+.project-box a {
+   color: var(--text-color-second);
+   transition: 0.5s ease-in-out;
+   margin-bottom: 10px;
+}
 .project-box desc {
    font-size: 15px;
    color: var(--text-color-second);
@@ -565,6 +570,7 @@ h3 {
    left: 0;
 }
 .project-box:hover.project-box i,
+.project-box:hover.project-box a,
 .project-box:hover.project-box > desc,
 .project-box:hover.project-box > label {
    color: white;
