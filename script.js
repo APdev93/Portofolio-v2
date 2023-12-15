@@ -1,67 +1,63 @@
 /* ----- NAVIGATION BAR FUNCTION ----- */
 
 function myMenuFunction() {
-   let menuBtn = document.getElementById("myNavMenu");
+	let menuBtn = document.getElementById("myNavMenu");
 
-   if (menuBtn.className === "nav-menu") {
-      menuBtn.className += " responsive";
-   } else {
-      menuBtn.className = "nav-menu";
-   }
+	if (menuBtn.className === "nav-menu") {
+		menuBtn.className += " responsive";
+	} else {
+		menuBtn.className = "nav-menu";
+	}
 }
 
 const modeToggle = document.getElementById("mode-toggle");
 const body = document.body;
 
 modeToggle.addEventListener("change", () => {
-   body.classList.toggle("dark-mode");
+	body.classList.toggle("dark-mode");
 });
 
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
 window.onscroll = function () {
-   headerShadow();
+	headerShadow();
 };
 
 function headerShadow() {
-   const navHeader = document.getElementById("header");
+	const navHeader = document.getElementById("header");
 
-   if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-   ) {
-      navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
-      navHeader.style.height = "70px";
-      navHeader.style.lineHeight = "70px";
-      navHeader.style.backgroundColor = "var(--nav-color)";
-   } else {
-      navHeader.style.boxShadow = "none";
-      navHeader.style.height = "80px";
-      navHeader.style.lineHeight = "80px";
-      navHeader.style.backgroundColor = "transparent";
-   }
+	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+		navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
+		navHeader.style.height = "70px";
+		navHeader.style.lineHeight = "70px";
+		navHeader.style.backgroundColor = "var(--nav-color)";
+	} else {
+		navHeader.style.boxShadow = "none";
+		navHeader.style.height = "80px";
+		navHeader.style.lineHeight = "80px";
+		navHeader.style.backgroundColor = "transparent";
+	}
 }
 
 /* ----- TYPING EFFECT ----- */
 let typingEffect = new Typed(".typedText", {
-   strings: [
-      "Ardian Permana",
-      "FrontEnd Developer",
-      "UI Desainer",
-      "From Lombok - IDN",
-      "17 Years Old",
-   ],
-   loop: true,
-   typeSpeed: 100,
-   backSpeed: 80,
-   backDelay: 300,
+	strings: [
+		"Ardian Permana",
+		"Fullstack Web Developer",
+		"From Lombok - IDN",
+		" up to 18 Years Old",
+	],
+	loop: true,
+	typeSpeed: 100,
+	backSpeed: 80,
+	backDelay: 300,
 });
 
 /* ----- ## -- SCROLL REVEAL ANIMATION -- ## ----- */
 const sr = ScrollReveal({
-   origin: "top",
-   distance: "80px",
-   duration: 2000,
-   reset: true,
+	origin: "top",
+	distance: "80px",
+	duration: 2000,
+	reset: true,
 });
 
 /* -- HOME -- */
@@ -82,10 +78,10 @@ sr.reveal(".top-header", {});
 
 /* -- ABOUT INFO & CONTACT INFO -- */
 const srLeft = ScrollReveal({
-   origin: "left",
-   distance: "80px",
-   duration: 2000,
-   reset: true,
+	origin: "left",
+	distance: "80px",
+	duration: 2000,
+	reset: true,
 });
 
 srLeft.reveal(".about-info", { delay: 100 });
@@ -93,10 +89,10 @@ srLeft.reveal(".contact-info", { delay: 100 });
 
 /* -- ABOUT SKILLS & FORM BOX -- */
 const srRight = ScrollReveal({
-   origin: "right",
-   distance: "80px",
-   duration: 2000,
-   reset: true,
+	origin: "right",
+	distance: "80px",
+	duration: 2000,
+	reset: true,
 });
 
 srRight.reveal(".skills-box", { delay: 100 });
@@ -107,23 +103,23 @@ srRight.reveal(".form-control", { delay: 100 });
 const sections = document.querySelectorAll("section[id]");
 
 function scrollActive() {
-   const scrollY = window.scrollY;
+	const scrollY = window.scrollY;
 
-   sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight,
-         sectionTop = current.offsetTop - 50,
-         sectionId = current.getAttribute("id");
+	sections.forEach(current => {
+		const sectionHeight = current.offsetHeight,
+			sectionTop = current.offsetTop - 50,
+			sectionId = current.getAttribute("id");
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-         document
-            .querySelector(".nav-menu a[href*=" + sectionId + "]")
-            .classList.add("active-link");
-      } else {
-         document
-            .querySelector(".nav-menu a[href*=" + sectionId + "]")
-            .classList.remove("active-link");
-      }
-   });
+		if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+			document
+				.querySelector(".nav-menu a[href*=" + sectionId + "]")
+				.classList.add("active-link");
+		} else {
+			document
+				.querySelector(".nav-menu a[href*=" + sectionId + "]")
+				.classList.remove("active-link");
+		}
+	});
 }
 
 window.addEventListener("scroll", scrollActive);
